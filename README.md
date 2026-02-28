@@ -1,1 +1,1 @@
-# Black-Marker
+This is a whiteboard website which is free to use where you use it like a whiteboard but online.You can write,draw,put post-its and many more. You can change the color of your text and drawing and if you dont like what you drew then you can just erase it with a visible eraser.
