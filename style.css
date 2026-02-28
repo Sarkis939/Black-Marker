@@ -1,1 +1,57 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+}
 
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+}
+
+/* macOS dock */
+.dock {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(15px);
+  padding: 10px 20px;
+  border-radius: 25px;
+  display: flex;
+  gap: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.dock button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 26px;
+  padding: 8px;
+  border-radius: 12px;
+  transition: 0.2s;
+}
+
+.dock button:hover {
+  transform: scale(1.2);
+}
+
+.dock button.active {
+  background: #e3f2fd;
+}
+
+.material-symbols-outlined {
+  font-size: 26px;
+}
+
+input[type="color"] {
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}

@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flavortown Board</title>
 
+<!-- Google Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<!-- Hidden file input -->
+<input type="file" id="fileInput" hidden>
+
+<!-- macOS style dock -->
+<div class="dock">
+
+  <button data-tool="select" class="active">
+    <span class="material-symbols-outlined">arrow_selector_tool</span>
+  </button>
+
+  <button data-tool="draw">
+    <span class="material-symbols-outlined">edit</span>
+  </button>
+
+  <button data-tool="text">
+    <span class="material-symbols-outlined">text_fields</span>
+  </button>
+
+  <button data-tool="sticky">
+    <span class="material-symbols-outlined">sticky_note_2</span>
+  </button>
+
+  <button data-tool="erase">
+    <span class="material-symbols-outlined">ink_eraser</span>
+  </button>
+
+  <input type="color" id="colorPicker" value="#ff0000">
+
+  <button id="saveBtn">
+    <span class="material-symbols-outlined">save</span>
+  </button>
+
+  <button id="loadBtn">
+    <span class="material-symbols-outlined">folder_open</span>
+  </button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
