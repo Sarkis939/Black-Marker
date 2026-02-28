@@ -4,21 +4,15 @@
 <meta charset="UTF-8">
 <title>Flavortown Board</title>
 
-<!-- Google Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <canvas id="canvas"></canvas>
-
-<!-- Hidden file input -->
 <input type="file" id="fileInput" hidden>
 
-<!-- macOS style dock -->
 <div class="dock">
-
   <button data-tool="select" class="active">
     <span class="material-symbols-outlined">arrow_selector_tool</span>
   </button>
@@ -39,7 +33,8 @@
     <span class="material-symbols-outlined">ink_eraser</span>
   </button>
 
-  <input type="color" id="colorPicker" value="#ff0000">
+  <input type="color" id="colorPicker" value="#000000">
+  <input type="range" id="eraserSize" min="5" max="80" value="20">
 
   <button id="saveBtn">
     <span class="material-symbols-outlined">save</span>
@@ -48,7 +43,6 @@
   <button id="loadBtn">
     <span class="material-symbols-outlined">folder_open</span>
   </button>
-
 </div>
 
 <script src="script.js"></script>

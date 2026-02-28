@@ -11,7 +11,6 @@ canvas {
   background: #ffffff;
 }
 
-/* macOS dock */
 .dock {
   position: fixed;
   bottom: 20px;
@@ -24,6 +23,7 @@ canvas {
   display: flex;
   gap: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  align-items: center;
 }
 
 .dock button {
@@ -54,4 +54,8 @@ input[type="color"] {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+input[type="range"] {
+  width: 100px;
 }
