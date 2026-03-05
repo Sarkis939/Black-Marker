@@ -1,42 +1,41 @@
-const boardsList = document.getElementById("boardsList");
-const newBoardBtn = document.getElementById("newBoardBtn");
-const fileInput = document.getElementById("fileInput");
+const nameInput = document.getElementById("boardName");
+const contentInput = document.getElementById("boardContent");
+const saveBtn = document.getElementById("saveBtn");
+const backBtn = document.getElementById("backBtn");
 
-// Load boards from localStorage
 let boards = JSON.parse(localStorage.getItem("flavortownBoards") || "[]");
+let currentIndex = localStorage.getItem("currentBoardIndex");
 
-function renderBoards() {
-    boardsList.innerHTML = "";
-    boards.forEach((board, index) => {
-        const li = document.createElement("li");
-        li.textContent = board.name || `Board ${index+1}`;
-        li.addEventListener("click", () => openBoard(board.data));
-        boardsList.appendChild(li);
-    });
+if (currentIndex !== null && boards[currentIndex]) {
+    const board = boards[currentIndex];
+    nameInput.value = board.name;
+    contentInput.value = board.data.content;
 }
 
-// Open a board
-function openBoard(data) {
-    localStorage.setItem("currentBoard", JSON.stringify(data));
-    window.open("index.html", "_blank");
-}
-
-// Create new board
-newBoardBtn.addEventListener("click", () => {
-    localStorage.removeItem("currentBoard");
-    window.open("index.html", "_blank");
-});
-
-// Optional: upload JSON file to dashboard
-fileInput.addEventListener("change", e => {
-    const reader = new FileReader();
-    reader.onload = ev => {
-        const data = JSON.parse(ev.target.result);
-        boards.push({ name: `Board ${boards.length+1}`, data });
-        localStorage.setItem("flavortownBoards", JSON.stringify(boards));
-        renderBoards();
+saveBtn.addEventListener("click", () => {
+    const boardData = {
+        name: nameInput.value || "Untitled Board",
+        content: contentInput.value
     };
-    reader.readAsText(fileInput.files[0]);
+
+    if (currentIndex !== null) {
+        boards[currentIndex] = {
+            name: boardData.name,
+            data: boardData
+        };
+    } else {
+        boards.push({
+            name: boardData.name,
+            data: boardData
+        });
+        currentIndex = boards.length - 1;
+        localStorage.setItem("currentBoardIndex", currentIndex);
+    }
+
+    localStorage.setItem("flavortownBoards", JSON.stringify(boards));
+    alert("Board saved!");
 });
 
-renderBoards();
+backBtn.addEventListener("click", () => {
+    window.location.href = "home.html";
+});
