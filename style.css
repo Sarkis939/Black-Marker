@@ -1,13 +1,8 @@
-body {
-  margin: 0;
-  overflow: hidden;
-  font-family: sans-serif;
-}
-
 canvas {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 0;
 }
 
 .dock {
@@ -15,17 +10,10 @@ canvas {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  background: white;
-  padding: 10px;
-  border-radius: 20px;
+  z-index: 10;
 }
 
-button {
-  border: none;
-  background: #eee;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
+.dock button,
+.dock input {
+  pointer-events: auto;
 }
